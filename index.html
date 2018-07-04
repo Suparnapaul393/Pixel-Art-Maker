@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Pixel Art Maker!</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Monoton">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">   
+</head>
+
+<body> 
+
+<div class="wrapper">
+  <header>
+    <h1 class="main-title"><img src="https://camo.githubusercontent.com/5633c63d700247f77a640947390fa439091f4524/687474703a2f2f69302e77702e636f6d2f626c6f672e756461636974792e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031362f30322f555f3336307833363070782e6a7067" class="logo">-Pixel
+      Art Maker</h1>
+    <p>Suparna Paul &copy;2018</p>
+  </header>
+
+  <div class="interface-container">
+    <h2 class="interface-title">Choose Grid Size</h2>
+    <form>
+      <div class="interface-size-container">
+        <label class="interface-input-title" for="interface-input-height">Grid Height:</label>
+        <div class="interface-input-container">
+          <input class="interface-input interface-input-height" type="number" name="height" min="1" max="50" value="1">
+          <span class="interface-tooltip-height"></span>
+        </div>
+        <div class="interface-btn-col">
+          <span class="interface-sub-btn-height interface-btn-col-icon"><i class="fas fa-minus"></i></span>
+          <span class="interface-add-btn-height interface-btn-col-icon"><i class="fas fa-plus icon"></i></span>
+        </div>
+      </div>
+
+      <div class="interface-size-container">
+        <label class="interface-input-title" for="interface-input-width">Grid Width:</label>
+        <div class="interface-input-container">
+          <input class="interface-input interface-input-width" type="number" name="width" min="1" max="50" value="1">
+          <span class="interface-tooltip-width"></span>
+        </div>
+        <div class="interface-btn-col">
+          <span class="interface-sub-btn-width interface-btn-col-icon"><i class="fas fa-minus"></i></span>
+          <span class="interface-add-btn-width interface-btn-col-icon"><i class="fas fa-plus"></i></span>
+        </div>
+      </div>
+
+      <div class="interface-presets-container">
+        <p class="presets-title">Preset Grids</p>
+        <ul class="presets-ul">
+          <li>
+            <div class="preset-container" id="preset-small">
+              <p class="preset-title">Small</p>
+              <p class="preset-description" id="small-description"></p>
+            </div>
+          </li>
+          <li>
+            <div class="preset-container" id="preset-medium">
+              <p class="preset-title">Medium</p>
+              <p class="preset-description" id="medium-description"></p>
+            </div>
+          </li>
+          <li>
+            <div class="preset-container" id="preset-large">
+              <p class="preset-title">Large</p>
+              <p class="preset-description" id="large-description"></p>
+            </div>
+          </li>
+          <li>
+            <div class="preset-container" id="preset-full">
+              <p class="preset-title">Full-Screen</p>
+              <p class="preset-description" id="full-description"></p>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="interface-create-btn-container">
+        <input id="submitBtn" class="interface-create-btn" type="submit" value="Create">
+      </div>
+
+    </form>
+
+  </div>
+</div>
+
+<div class="modal">
+  <div class="modal-content">
+    <div class="modal-nav">
+      <div class="modal-close-btn">&times;</div>
+    </div>
+
+    <div class="modal-pixel-canvas-container">
+      <table id="pixel-canvas" class="modal-pixel-canvas"></table>
+    </div>
+
+    <div class="modal-toolbar">
+
+      <div class="bar1">
+        <div class="modal-color-btn modal-toolbar-icon-container modal-tooltip">
+          <i id="color-icon" class="fas fa-circle modal-toolbar-icon"></i>
+          <input class="modal-color-input" id="custom" type="color" name="color" value="">
+          <span class="modal-paint-tooltip">Get started by picking a color!</span>
+        </div>
+
+        <div class="modal-paint-btn modal-toolbar-icon-container modal-icon-active modal-tooltip">
+          <span class="modal-tooltip-text">Draw</span>
+          <i class="fas fa-paint-brush modal-toolbar-icon"></i>
+        </div>
+
+        <div class="modal-erase-btn modal-toolbar-icon-container modal-tooltip">
+          <span class="modal-tooltip-text">Erase</span>
+          <i class="fas fa-eraser modal-toolbar-icon"></i>
+        </div>
+
+        <div class="modal-dropper-btn modal-toolbar-icon-container modal-tooltip">
+          <span class="modal-tooltip-text">Eye Dropper</span>
+          <i class="fas fa-eye-dropper modal-toolbar-icon"></i>
+        </div>
+      </div>
+      <div class="bar2">
+        <div class="modal-clear-btn modal-toolbar-icon-container modal-tooltip">
+          <span class="modal-tooltip-text">Clear Page</span>
+          <i class="far fa-file modal-toolbar-icon"></i>
+        </div>
+
+        <div class="modal-download-btn modal-toolbar-icon-container modal-tooltip">
+          <span class="modal-tooltip-text">Save</span>
+          <i class="fas fa-save modal-toolbar-icon"></i>
+        </div>
+
+        <div class="modal-import-btn modal-toolbar-icon-container modal-tooltip">
+          <span class="modal-tooltip-text">Import</span>
+          <i class="fas fa-folder-open modal-toolbar-icon"></i>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="modal-popup">
+  <div class="modal-popup-content">
+    <p class="modal-popup-text"></p>
+    <ul class="modal-popup-list">
+      <li class="modal-popup-yes-btn">Yes</li>
+      <li class="modal-popup-no-btn">No</li>
+    </ul>
+  </div>
+
+</div>
+
+</div>
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="js/designs.js"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+</body>
+</html>
+ 
